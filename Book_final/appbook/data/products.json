@@ -1,0 +1,28 @@
+[{
+  "id": 1,
+  "name": "Nhà giả kim",
+  "author": "Paulo Coelho",
+  "description": "Nhà giả kim là tiểu thuyết được xuất bản lần đầu ở Brasil năm 1988, và là cuốn sách nổi tiếng nhất của nhà văn Paulo Coelho. Tác phẩm là một trong những cuốn sách bán chạy nhất mọi thời đại.",
+  "price": 55000,
+  "quantity": 300,
+  "image": "image/p1.png",
+  "category_id": 1
+}, {
+  "id": 2,
+  "name": "Hoàng tử bé",
+  "author":"Antoine de Saint-Exupéry",
+  "description": "Hoàng tử bé, được xuất bản năm 1943, là tiểu thuyết nổi tiếng nhất của nhà văn và phi công Pháp Antoine de Saint-Exupéry.",
+  "price": 75000,
+  "quantity": 300,
+  "image": "image/p2.png",
+  "category_id": 2
+}, {
+  "id": 3,
+  "name": "Tái tạo kép",
+  "author":"Mark W. Johnson",
+  "description": "Thị trường ngày nay liên tục thay đổi, các doanh nghiệp sinh ra và mất đi, và ngay cả các doanh nghiệp uy tín, lâu năm vẫn thường xuyên thất bại, thậm chí sụp đổ bởi những công nghệ đột phá.",
+  "price": 128500,
+  "quantity": 300,
+  "image": "image/p3.png",
+  "category_id": 3
+}]

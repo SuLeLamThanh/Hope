@@ -1,0 +1,44 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} Thông tin địa chỉ giao hàng {% endblock %}
+
+{% block content %}
+<h1 class="text-center text-danger">Thông tin địa chỉ giao hàng</h1>
+<form>
+    <div class="">
+        <label for="nameaddr">Tên tài khoản</label>
+        <input type="text" class="form-control" id="nameaddr" name="nameaddr" required />
+    </div>
+    <div class="">
+        <label for="emailar">Email</label>
+        <input type="email" class="form-control" id="emailar" name="emailar" />
+    </div>
+    <div class="">
+        <label for="phone">Số điện thoại</label>
+        <input type="number" class="form-control" id="phone" name="phone" required />
+    </div>
+    <div class="">
+        <label for="address">Địa chỉ nhận hàng</label>
+        <input type="text" class="form-control" id="address" name="address" />
+    </div>
+    <div class="">
+        <label for="accnumber">Số hóa đơn xác nhận giao dịch</label>
+        <input type="text" class="form-control" id="accnumber" name="accnumber" />
+    </div>
+    <input type="submit" value="Xác nhận" class="btn btn-info" />
+</form>
+<script>
+
+function getInfo() {
+    if (confirm('Bạn chắc chắn ghi đúng thông tin chưa?') == true) {
+        fetch('/api/getinfo', {
+            method: 'post'
+        }).then(res => res.json()).then(data => {
+            if (data.code === 200)
+                location.reload()
+        })
+    }
+}
+
+</script>
+{% endblock %}
