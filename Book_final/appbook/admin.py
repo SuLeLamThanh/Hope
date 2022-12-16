@@ -103,10 +103,12 @@ class ProductView(AuthenticatedModelView):
 class StatsView(AuthenticatedView):
     @expose('/')
     def index(self):
+
         stats = dao.stats_revenue(kw=request.args.get('kw'),
                                   from_date=request.args.get('from_date'),
                                   to_date=request.args.get('to_date'))
-        return self.render('admin/stats.html', stats=stats)
+        stats1 = dao.stats1_revenue(year=request.args.get('year', datetime.now().year))
+        return self.render('admin/stats.html', stats=stats, stats1=stats1)
 
 
 class LogoutView(AuthenticatedView):

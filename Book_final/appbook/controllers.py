@@ -46,7 +46,7 @@ def register():
 
 @annonynous_user
 def login_my_user():
-    err_msg = ''
+
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -57,10 +57,8 @@ def login_my_user():
 
             u = request.args.get('next')
             return redirect(u if u else '/')
-        else:
-            err_msg = 'Tên đăng nhập hoặc mật khẩu không đúng'
 
-    return render_template('login.html', err_msg=err_msg)
+    return render_template('login.html')
 
 
 def logout_my_user():

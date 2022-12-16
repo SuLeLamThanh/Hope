@@ -3,6 +3,7 @@ from flask_login import current_user
 from sqlalchemy import func
 from appbook import db
 import hashlib
+from sqlalchemy.sql import extract
 
 
 def load_categories():
@@ -23,10 +24,6 @@ def load_products(category_id=None, kw=None):
 
 def get_product_by_id(product_id):
     return Product.query.get(product_id)
-
-
-def BillDetails(book_id):
-    return Product.query.get(book_id)
 
 
 def auth_user(username, password):
@@ -71,21 +68,35 @@ def count_product_by_cate():
                      .group_by(Category.id).order_by(Category.id).all()
 
 
+def stats1_revenue(year):
+    p = db.session.query(extract('month', Receipt.created_date), Product.name,
+                         ReceiptDetail.quantity)\
+                  .join(Category, Product.category_id.__eq__(Category.id), isouter=True)\
+                  .join(ReceiptDetail, ReceiptDetail.product_id.__eq__(Product.id), isouter=True)\
+                  .join(Receipt, Receipt.id.__eq__(ReceiptDetail.receipt_id))\
+                  .group_by(extract('month', Receipt.created_date), Product.name, ReceiptDetail.quantity)
+
+    return p.order_by(extract('month', Receipt.created_date)).all()
+
+
 def stats_revenue(kw=None, from_date=None, to_date=None):
-    query = db.session.query(Product.id, Product.name, func.sum(ReceiptDetail.price*ReceiptDetail.quantity))\
-                      .join(ReceiptDetail, ReceiptDetail.product_id.__eq__(Product.id))\
-                      .join(Receipt, ReceiptDetail.receipt_id.__eq__(Receipt.id))
+    p = db.session.query(extract('month', Receipt.created_date), Category.name,
+                         func.sum(ReceiptDetail.quantity * ReceiptDetail.price))\
+                  .join(Product, Product.category_id.__eq__(Category.id), isouter=True)\
+                  .join(ReceiptDetail, ReceiptDetail.product_id.__eq__(Product.id), isouter=True)\
+                  .join(Receipt, Receipt.id.__eq__(ReceiptDetail.receipt_id))\
+                  .group_by(extract('month', Receipt.created_date), Category.name)
 
     if kw:
-        query = query.filter(Product.name.contains(kw))
+        p = p.filter(Product.name.contains(kw))
 
     if from_date:
-        query = query.filter(Receipt.created_date.__ge__(from_date))
+        p = p.filter(Receipt.created_date.__ge__(from_date))
 
     if to_date:
-        query = query.filter(Receipt.created_date.__le__(to_date))
+        p = p.filter(Receipt.created_date.__le__(to_date))
 
-    return query.group_by(Product.id).all()
+    return p.order_by(extract('month', Receipt.created_date)).all()
 
 
 def load_comments_by_prod(product_id):

@@ -1,4 +1,4 @@
-{% extends 'admin/base.html' %}
+{% extends 'admin/master.html' %}
 
 {% block body %}
 <h1 class="text-center text-danger">THỐNG KÊ DOANH THU</h1>
@@ -43,19 +43,18 @@
         <canvas id="productChartId"></canvas>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-5 col-xs-12">
         <table class="table">
             <tr>
                 <th>Tháng</th>
                 <th>Tên sản phẩm</th>
-                <th>Số lượng sản phẩm</th>
+                <th>Tần suất</th>
             </tr>
-            {% for s in month_stats %}
+            {% for s in stats1 %}
             <tr>
-                <td>{{ s[1] }}</td>
                 <td>{{ s[0] }}</td>
+                <td>{{ s[1] }}</td>
                 <td>{{ s[2] }}</td>
             </tr>
             {% endfor %}
@@ -97,9 +96,9 @@
     {% endif %}
     {% endfor %}
 
-    {% for s in month_stats %}
+    {% for s in stats1 %}
 
-    labels2.push('{{s[0]}}')
+    labels2.push('{{s[1]}}')
     data2.push({{ s[2] }})
 
     r = parseInt(Math.random() * 255)

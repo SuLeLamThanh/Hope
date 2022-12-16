@@ -96,50 +96,50 @@ class Comment(BaseModel):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        c1 = Category(name='Sách văn học')
-        c2 = Category(name='Sách thiếu nhi')
-        c3 = Category(name='Sách kinh tế')
-        c4 = Category(name='Sách tiểu thuyết')
-        c5 = Category(name='Sách địa lý')
+        # c1 = Category(name='Sách văn học')
+        # c2 = Category(name='Sách thiếu nhi')
+        # c3 = Category(name='Sách kinh tế')
+        # c4 = Category(name='Sách tiểu thuyết')
+        # c5 = Category(name='Sách địa lý')
+        #
+        # db.session.add(c1)
+        # db.session.add(c2)
+        # db.session.add(c3)
+        # db.session.add(c4)
+        # db.session.add(c5)
+        #
+        # db.session.commit()
+        #
+        # p1 = Product(name= 'Nhà giả kim', author = 'Paulo Coelho', description = 'Nhà giả kim là tiểu thuyết được xuất bản lần đầu ở Brasil năm 1988, và là cuốn sách nổi tiếng nhất của nhà văn Paulo Coelho. Tác phẩm là một trong những cuốn sách bán chạy nhất mọi thời đại.',
+        #             price = 55000, quantity = 300, image = 'https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p1_wk9obk.jpg', category_id = 1)
+        # p2 = Product(name= 'Hoàng tử bé', author= 'Antoine de Saint-Exupéry', description = 'Hoàng tử bé, được xuất bản năm 1943, là tiểu thuyết nổi tiếng nhất của nhà văn và phi công Pháp Antoine de Saint-Exupéry.', price = 75000,
+        #             quantity = 300, image = 'https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p2_y76tm0.jpg', category_id = 2)
+        # p3 = Product(name ='Tái tạo kép', author = 'Mark W. Johnson', description = 'Thị trường ngày nay liên tục thay đổi, các doanh nghiệp sinh ra và mất đi, và ngay cả các doanh nghiệp uy tín, lâu năm vẫn thường xuyên thất bại, thậm chí sụp đổ bởi những công nghệ đột phá.', price = 128500,
+        #             quantity = 300, image = 'https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p3_cs8xtk.jpg', category_id = 3)
+        # p4 = Product(name='Rừng Nauy', author='Haruki Murakami', description='Rừng Na uy", im lặng, ma thuật và tuyệt vọng như một chấm máu cô độc giữa bạt ngàn tuyết lạnh.',
+        #              price=150000, quantity=300, image='https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p4_toxeoh.jpg', category_id=4)
+        # p5 = Product(name='Spy X Family', author='Tatsuya Endo', description='Cuối cùng thì Twilight cũng tiếp xúc được với mục tiêu Desmond lần đầu tiên bằng cách xen vào cuộc gặp gỡ giữa hắn và cậu con trai thứ Damian!!',
+        #              price=	20000, quantity=300, image='https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p5_t8uhrn.jpg', category_id=2)
+        # p6 = Product(name='Sơn Nam', author='Sơn Nam',
+        #              description='Tìm hiểu đất Hậu Giang là tác phẩm biên khảo đầu tiên của nhà văn Sơn Nam về vùng đất ông đã sinh ra, lớn lên và trưởng thành.',
+        #              price=120000, quantity=300,
+        #              image='https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p6_fudtul.jpg', category_id=5)
+        #
+        # db.session.add(p1)
+        # db.session.add(p2)
+        # db.session.add(p3)
+        # db.session.add(p4)
+        # db.session.add(p5)
+        # db.session.add(p6)
+        #
+        # db.session.commit()
 
-        db.session.add(c1)
-        db.session.add(c2)
-        db.session.add(c3)
-        db.session.add(c4)
-        db.session.add(c5)
-
-        db.session.commit()
-
-        p1 = Product(name= 'Nhà giả kim', author = 'Paulo Coelho', description = 'Nhà giả kim là tiểu thuyết được xuất bản lần đầu ở Brasil năm 1988, và là cuốn sách nổi tiếng nhất của nhà văn Paulo Coelho. Tác phẩm là một trong những cuốn sách bán chạy nhất mọi thời đại.',
-                    price = 55000, quantity = 300, image = 'https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p1_wk9obk.jpg', category_id = 1)
-        p2 = Product(name= 'Hoàng tử bé', author= 'Antoine de Saint-Exupéry', description = 'Hoàng tử bé, được xuất bản năm 1943, là tiểu thuyết nổi tiếng nhất của nhà văn và phi công Pháp Antoine de Saint-Exupéry.', price = 75000,
-                    quantity = 300, image = 'https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p2_y76tm0.jpg', category_id = 2)
-        p3 = Product(name ='Tái tạo kép', author = 'Mark W. Johnson', description = 'Thị trường ngày nay liên tục thay đổi, các doanh nghiệp sinh ra và mất đi, và ngay cả các doanh nghiệp uy tín, lâu năm vẫn thường xuyên thất bại, thậm chí sụp đổ bởi những công nghệ đột phá.', price = 128500,
-                    quantity = 300, image = 'https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p3_cs8xtk.jpg', category_id = 3)
-        p4 = Product(name='Rừng Nauy', author='Haruki Murakami', description='Rừng Na uy", im lặng, ma thuật và tuyệt vọng như một chấm máu cô độc giữa bạt ngàn tuyết lạnh.',
-                     price=150000, quantity=300, image='https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p4_toxeoh.jpg', category_id=4)
-        p5 = Product(name='Spy X Family', author='Tatsuya Endo', description='Cuối cùng thì Twilight cũng tiếp xúc được với mục tiêu Desmond lần đầu tiên bằng cách xen vào cuộc gặp gỡ giữa hắn và cậu con trai thứ Damian!!',
-                     price=	20000, quantity=300, image='https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p5_t8uhrn.jpg', category_id=2)
-        p6 = Product(name='Sơn Nam', author='Sơn Nam',
-                     description='Tìm hiểu đất Hậu Giang là tác phẩm biên khảo đầu tiên của nhà văn Sơn Nam về vùng đất ông đã sinh ra, lớn lên và trưởng thành.',
-                     price=120000, quantity=300,
-                     image='https://res.cloudinary.com/drda2ewdn/image/upload/v1671207498/p6_fudtul.jpg', category_id=5)
-
-        db.session.add(p1)
-        db.session.add(p2)
-        db.session.add(p3)
-        db.session.add(p4)
-        db.session.add(p5)
-        db.session.add(p6)
-
-        db.session.commit()
-
-        import hashlib
-        password = str(hashlib.md5('12345678'.encode('utf-8')).hexdigest())
-        u = User(name='Thanh', username='admin',
-                password=password,
-                user_role=UserRole.ADMIN,
-                avatar='https://res.cloudinary.com/drda2ewdn/image/upload/v1670590761/cn2bjpeh0dkjxcb7eymp.jpg')
-        db.session.add(u)
-        db.session.commit()
-
+        # import hashlib
+        # password = str(hashlib.md5('12345678'.encode('utf-8')).hexdigest())
+        # u = User(name='Thanh', username='admin',
+        #         password=password,
+        #         user_role=UserRole.ADMIN,
+        #         avatar='https://res.cloudinary.com/drda2ewdn/image/upload/v1670590761/cn2bjpeh0dkjxcb7eymp.jpg')
+        # db.session.add(u)
+        # db.session.commit()
+        #
