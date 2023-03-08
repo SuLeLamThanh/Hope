@@ -70,11 +70,11 @@ def count_product_by_cate():
 
 def stats1_revenue(year):
     p = db.session.query(extract('month', Receipt.created_date), Product.name,
-                         ReceiptDetail.quantity)\
+                         func.sum(ReceiptDetail.quantity))\
                   .join(Category, Product.category_id.__eq__(Category.id), isouter=True)\
                   .join(ReceiptDetail, ReceiptDetail.product_id.__eq__(Product.id), isouter=True)\
                   .join(Receipt, Receipt.id.__eq__(ReceiptDetail.receipt_id))\
-                  .group_by(extract('month', Receipt.created_date), Product.name, ReceiptDetail.quantity)
+                  .group_by(extract('month', Receipt.created_date), Product.name)
 
     return p.order_by(extract('month', Receipt.created_date)).all()
 
